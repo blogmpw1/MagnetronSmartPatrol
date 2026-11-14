@@ -1,0 +1,31 @@
+
+name: Build x86 DLL
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure MSVC x86
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x86
+
+      - name: Build DLL
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path build | Out-Null
+          cl /nologo /LD /O2 /W4 /EHsc /DWIN32 /D_WINDOWS src/MagnetronSmartPatrol.cpp /link /MACHINE:X86 /OUT:build/MagnetronSmartPatrol.dll
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: MagnetronSmartPatrol-build-scaffold
+          path: build/MagnetronSmartPatrol.dll
