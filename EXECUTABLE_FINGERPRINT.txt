@@ -1,0 +1,12 @@
+User-supplied gamemd.exe fingerprint
+Size: 4813072
+MD5: fe2301a1f48841aa084aade100b25335
+SHA256: 7b8a068535d6af06845edf95ae829b113d00c02909330e16f197426cd7db94b6
+PE machine: 0x014c (x86)
+PE optional magic: 0x010b (PE32)
+ImageBase: 0x00400000
+AddressOfEntryPoint RVA: 0x003cd80f
+Timestamp: 0x3bdf544e (2001-10-31 01:30:54 UTC)
+
+WARNING: file size and PE metadata alone do not prove the exact patch/build.
+The MD5 does not match the commonly documented retail YR 1.001 or The First Decade fingerprints.
